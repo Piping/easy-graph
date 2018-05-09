@@ -12,9 +12,9 @@ A graph/network library that has easy-to-use API to generate, manipulate and vis
 ### Show me the code [Dijkstra Shortest Path]
 
 - ```javascript
-  //generate a random graph, by default node has integer ID from 0
+  //generate a random undirected graph, by default node has integer ID from 0
   const eg = require('easy-graph')
-  const G = eg.randomGraph({v:30, e:20, weightOnEdge: true});
+  const G = eg.randomGraph({v:30, p:0.5, weightOnEdge: true});
 
   const dist,prev = Array(30).fill(-Infinity), Array(30).fill(null)
   const [source,target] = [0,29]
@@ -47,4 +47,18 @@ A graph/network library that has easy-to-use API to generate, manipulate and vis
 
 ### API Documentation
 
+- create a graph
+  - `let G = easyGraph.randomGraph()`
+- get all nodes id as array of nodeid [ id1, id2,...]
+  - `G.V()`
+- get all edges id as array of [ [from,to], ... ]
+  - `G.E()`
+- get adjcent nodes of a node
+  - `G.Neighbor(nodeID)`
+- get an edge object
+  - `G.E(sourceID, targetID)`
+- get a node object 
+  - `G.V(nodeID)`
+- get all edges start with a node (out degree)
+  - `G.E(sourceID)`
 - ​
